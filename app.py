@@ -175,7 +175,7 @@ div.stButton > button:active {
 # ─── Load Artifacts (cached) ────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
 def load_artifacts():
-    model = tf.keras.models.load_model('churn_model.h5')
+    model = tf.keras.models.load_model('churn_model.keras')
     with open('label_encoder_gender.pkl', 'rb') as f:
         le_gender = pickle.load(f)
     with open('one_hot_encoder_geo.pkl', 'rb') as f:
