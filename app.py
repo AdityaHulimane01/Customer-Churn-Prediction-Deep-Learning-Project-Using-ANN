@@ -4,6 +4,18 @@ import tensorflow as tf
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
+import sys
+
+# ─── NumPy 1.x / 2.x Compatibility Shim ─────────────────────────────────────────
+try:
+    import numpy._core.numeric
+except ModuleNotFoundError:
+    try:
+        import numpy.core as _core
+        sys.modules['numpy._core'] = _core
+        sys.modules['numpy._core.numeric'] = _core.numeric
+    except Exception:
+        pass
 
 # ─── Page Config ────────────────────────────────────────────────────────────────
 st.set_page_config(
